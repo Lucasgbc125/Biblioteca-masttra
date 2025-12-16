@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Aluno</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    </head>
+    <body>
+    <!-- MENU DE NAVEGACAO -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand fw-bold fs-4">
+                <i class="bi bi-book me-2"></i>
+                Biblioteca Mesttra
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Link home menu -->
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link active">
+                            <i class="bi bi-house-fill me-1"></i>
+                            Home
+                        </a>
+                    </li>
+                    <!-- section de cadastros -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggler" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-plus-fill me-1"></i>
+                            Cadastros
+                        </a>
+                        <!-- links dos cadastros -->
+                        <ul class="dropdown-menu">
+                            <div class="row">
+                                <div class="col">
+                                    <li><a href="./alunos.html" class="dropdown-item">
+                                    <i class="bi bi-person-badge me-2"></i>Aluno
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="/frontend/cadastro/autor.html">
+                                    <i class="bi bi-pen me-2"></i>Autores
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="/frontend/cadastro/categoria.html">
+                                        <i class="bi bi-tag me-2"></i>Categorias
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="/frontend/cadastro/editora.html">
+                                        <i class="bi bi-building me-2"></i>Editoras
+                                    </a></li>
+                                    <li><a class="dropdown-item" href=".livro.html">
+                                        <i class="bi bi-book me-2"></i>Livros
+                                    </a></li>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                    <!-- section de empréstimos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggler" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-arrow-left-right me-1"></i>
+                            Emprestimos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href=".emprestar.html">
+                                <i class="bi bi-box-arrow-right me-2"></i>Emprestar
+                            </a></li>
+                            <li><a class="dropdown-item" href=".devolver.html">
+                                <i class="bi bi-box-arrow-in-left me-2"></i>Devolver
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Conteudo principal -->
+    <main class="container my-5 flex-grow-1">
+        
+        <!-- cabeçalho da pagina -->
+        <section class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="fw-bold">Cadastro de Alunos</h1>
+                <p class="text-muted mb-0">Preencha os dados abaixo para cadastrar um novo aluno.</p>
+            </div>
+            <a href="./alunos.html" class="btn btn-outline-secondary btn-lg">Voltar para lista</a>
+        </section>
+
+        <!-- Formulario de cadastro -->
+        <section class="card shadow-sm border-0">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0 fw-bold">Dados do aluno</h5>
+            </div>
+            <div class="card-body p-4">
+                <form onsubmit="cadastrarAluno(event)">
+                    <!-- Linha 1: Nome, CPF e Data Cadastro -->
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label for="nome" class="form-label fw-bold text-secondary">Nome Completo:</label>
+                            <input type="text" name="nome" id="nome" class="form-control form-control-lg"
+                            placeholder="Digite o nome completo..." required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cpf" class="form-label fw-bold text-secondary">CPF:</label>
+                            <input type="text" name="cpf" id="cpf" class="form-control form-control-lg"
+                            placeholder="XXX.XXX.XXX-XX" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="datacadastro" class="form-label fw-bold text-secondary">Data de cadastro:</label>
+                            <input type="date" name="datacadastro" id="datacadastro" class="form-control form-control-lg" required>
+                        </div>
+                    </div>
+
+                    <!-- Linha 2: Endereço, Email, Telefone -->
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label for="endereco" class="form-label fw-bold text-secondary">Endereço:</label>
+                            <input type="text" name="endereco" id="endereco" class="form-control form-control-lg"
+                            placeholder="Digite o endereço" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email" class="form-label fw-bold text-secondary">Email:</label>
+                            <input type="email" name="email" id="email" class="form-control form-control-lg"
+                            placeholder="exemplo@email.com" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tel" class="form-label fw-bold text-secondary">Telefone:</label>
+                            <input type="tel" name="tel" id="tel" class="form-control form-control-lg"
+                            placeholder="(xx) XXXX-XXXX" required>
+                        </div>
+                    </div>
+
+                    <!-- linha 3 - Botoes de ação -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type= "submit" class="btn btn-success btn-lg px-5 me-3">Cadastrar Aluno</button>
+                            <button type="reset" class="btn btn-outline-secondary btn-lg px-4">Limpar Formulário</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var dataInput = document.getElementById('datacadastro')
+            if (dataInput) {
+                var hoje = new Date().toISOString().split('T')[0];
+                dataInput.value = hoje
+            }
+        })
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="./aluno.js"></script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "alunos": [
+    {
+      "id": "755b",
+      "nome": "Pedro Oliveira",
+      "cpf": "01681968498",
+      "datacadastro": "2025-11-10",
+      "endereco": "Rua Paulo, numero123 bairro sao lucas",
+      "email": "paulo.oliv@gmail.com",
+      "tel": "11984984984"
+    },
+    {
+      "id": "e6c1",
+      "nome": "Mario Sergio",
+      "cpf": "0206818964",
+      "datacadastro": "2025-11-10",
+      "endereco": "Rua X",
+      "email": "email@email.com",
+      "tel": "119684984"
+    },
+    {
+      "id": "1eec",
+      "nome": "joao da silva",
+      "cpf": "021658168",
+      "datacadastro": "2025-11-10",
+      "endereco": "rua x numero y",
+      "email": "email@email.com",
+      "tel": "119684984"
+    }
+  ]
+}
